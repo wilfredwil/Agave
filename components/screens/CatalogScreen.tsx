@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, FlatList, StyleSheet } from 'react-native';
+import { View, FlatList, StyleSheet } from 'react-native';
 import ProductCard from '../ProductCard';  // Asegúrate de que la ruta sea correcta
 
 const products = [
@@ -25,12 +25,5 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
-  },
-  item: {
-    marginBottom: 20,
-  },
-  name: {
-    fontSize: 18,
-    fontWeight: 'bold',
   },
 });

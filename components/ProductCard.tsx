@@ -10,7 +10,6 @@ interface ProductCardProps {
 export default function ProductCard({ name, type, rating }: ProductCardProps) {
   return (
     <View style={styles.card}>
-      {/* Asegúrate de que todas las cadenas estén dentro de un <Text> */}
       <Text style={styles.name}>{name}</Text>
       <Text>{type}</Text>
       <Text>Rating: {rating}</Text>

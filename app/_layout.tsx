@@ -1,13 +1,13 @@
 import React from 'react';
-import { DarkTheme, DefaultTheme, ThemeProvider, NavigationContainer } from '@react-navigation/native'; // Agregué NavigationContainer
+import { DarkTheme, DefaultTheme, ThemeProvider, NavigationContainer } from '@react-navigation/native'; 
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
 import { useColorScheme } from '../hooks/useColorScheme';
-import HomeScreen from '../components/screens/HomeScreen';  // Asegúrate de tener este archivo
-import CatalogScreen from '../components/screens/CatalogScreen';  // Asegúrate de tener este archivo
-import ProfileScreen from '../components/screens/ProfileScreen';  // Asegúrate de tener este archivo
+import HomeScreen from '../components/screens/HomeScreen';
+import CatalogScreen from '../components/screens/CatalogScreen';
+import ProfileScreen from '../components/screens/ProfileScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -31,7 +31,7 @@ export default function RootLayout() {
 
   return (
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <NavigationContainer>  {/* Ahora el NavigationContainer envuelve todo */}
+      <NavigationContainer>
         <Stack.Navigator>
           <Stack.Screen name="Home" component={HomeScreen} />
           <Stack.Screen name="Catalog" component={CatalogScreen} />
