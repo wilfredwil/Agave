@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, Button, StyleSheet, Alert } from 'react-native';
 import { BarCodeScanner } from 'expo-barcode-scanner';
-import { firestore } from '../config/firebaseConfig'; // Asegúrate de que esta ruta sea correcta
+import { firestore } from '../../config/firebaseConfig'; // Asegúrate de que esta ruta sea correcta
 
 export default function ScanScreen() {
   const [hasPermission, setHasPermission] = useState<boolean | null>(null);

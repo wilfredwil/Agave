@@ -17,22 +17,23 @@ type RootStackParamList = {
   Catalog: undefined;
   Profile: undefined;
   Scan: undefined;
-  ProductDetails: { productId: string }; // productId es un string
+  ProductDetails: { productId: string }; // Asegúrate de que `productId` es un string
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
+// Aseguramos que la splash screen no desaparezca hasta que todo esté cargado
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
-  const colorScheme = useColorScheme();
+  const colorScheme = useColorScheme(); // Usamos el esquema de colores del sistema (oscuro o claro)
   const [loaded] = useFonts({
     SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
   });
 
   useEffect(() => {
     if (loaded) {
-      SplashScreen.hideAsync();
+      SplashScreen.hideAsync(); // Oculta la splash screen una vez que las fuentes están cargadas
     }
   }, [loaded]);
 
@@ -43,15 +44,12 @@ export default function RootLayout() {
   return (
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
       <NavigationContainer>
-        <Stack.Navigator>
+        <Stack.Navigator initialRouteName="Home"> {/* Asegúrate de que "Home" sea la pantalla inicial */}
           <Stack.Screen name="Home" component={HomeScreen} />
           <Stack.Screen name="Catalog" component={CatalogScreen} />
           <Stack.Screen name="Profile" component={ProfileScreen} />
           <Stack.Screen name="Scan" component={ScanScreen} />
-          <Stack.Screen 
-            name="ProductDetails" 
-            component={ProductDetails} 
-            options={{ title: 'Product Details' }} // Asegúrate de que `ProductDetails` acepte `productId`
+          <Stack.Screen name="ProductDetails" component={ProductDetails} options={{ title: 'Product Details' }} // Título personalizado para la pantalla de detalles del producto
           />
         </Stack.Navigator>
       </NavigationContainer>
